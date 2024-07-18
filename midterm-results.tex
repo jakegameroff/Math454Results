@@ -4,7 +4,7 @@
 
 \begin{center}
 	\textbf{\large MATH 454: Examinable Results} \\
-    \\ \large McGill University (Fall 2023)
+    {\large McGill University (Fall 2023)}
     \\ Jake R. Gameroff 
 \end{center}
 \begin{enumerate}
@@ -126,9 +126,9 @@ Now define \[ \varphi_{k,\varepsilon } \coloneqq \sum_{k = 0}^{m_\varepsilon  - 
 \end{enumerate}
 Moreover, if \( f \geq 0 \) in \( A \), then we can choose \(( \varphi _k )_k\) such that \( \varphi _k \geq 0 \) in \( A \) for each \( k \in \mathbb{N}  \).
 \begin{proof}\renewcommand{\qedsymbol}{}
-We first suppose \( f \geq 0 \) in \( A \). For each \( k \in \mathbb{N}  \) let \( f_k\coloneqq \min (f,k)\chi_{V_{k} (0)}  \). Since \( f_k \leq k  \) and \( f_k = 0 \) in \( \mathbb{R}^{d} \setminus V_k(0) \), we can apply the simple approximation lemma to \( f_k \), which gives that there exists a simple function \( \tilda{\varphi}_k : A \to V_k(0) \to \mathbb{R} \) such that \( \tilda{\varphi}_k \leq f_k \leq \tilde{\varphi}_k + \frac{1}{k}  \) in \( V_k(0). \) By extending \( \tilda{\varphi}_k \) by 0 in \( \mathbb{R}^{d} \setminus V_k(0) \), we may consider \( \phi_k \) as a function defined in \( \mathbb{R}^{d}  \) such that \( \tilda{\varphi}_k \leq f_k \leq \tilda{\varphi}_k + \frac{1}{k}  \) in \( \mathbb{R}^{d}  \), since \( f_k = 0 \) in \( \mathbb{R}^{d} \setminus V_k(0) \).
+We first suppose \( f \geq 0 \) in \( A \). For each \( k \in \mathbb{N}  \) let \( f_k\coloneqq \min (f,k)\chi_{V_{k} (0)}  \). Since \( f_k \leq k  \) and \( f_k = 0 \) in \( \mathbb{R}^{d} \setminus V_k(0) \), we can apply the simple approximation lemma to \( f_k \), which gives that there exists a simple function \( \sim{\varphi}_k : A \to V_k(0) \to \mathbb{R} \) such that \( \tilde{\varphi}_k \leq f_k \leq \tilde{\varphi}_k + \frac{1}{k}  \) in \( V_k(0). \) By extending \( \tilde{\varphi}_k \) by 0 in \( \mathbb{R}^{d} \setminus V_k(0) \), we may consider \( \phi_k \) as a function defined in \( \mathbb{R}^{d}  \) such that \( \tilde{\varphi}_k \leq f_k \leq \tilde{\varphi}_k + \frac{1}{k}  \) in \( \mathbb{R}^{d}  \), since \( f_k = 0 \) in \( \mathbb{R}^{d} \setminus V_k(0) \).
 
-Define \( \varphi _k \coloneqq \max (\tilde{\varphi}_1, \hdots , \tilda{\varphi}_k , 0) \) so that \( \varphi_{k+1} \geq \varphi _k \geq 0   \) for each \( k \in \mathbb{N}  \). Moreover, at each \(x \in A,\)
+Define \( \varphi _k \coloneqq \max (\tilde{\varphi}_1, \hdots , \tilde{\varphi}_k , 0) \) so that \( \varphi_{k+1} \geq \varphi _k \geq 0   \) for each \( k \in \mathbb{N}  \). Moreover, at each \(x \in A,\)
 \begin{itemize}
 	\item if \( f(x) = \infty \) for each \( k > |x| \), then \( f_k(x) = k \) and \( \varphi _k (x) \geq \tilde{\varphi }_k(x) > f_k(x) - \frac{1}{k} = k - \frac{1}{k}  \), hence \( \lim_{{k} \to {\infty}} \varphi _k (x) = \infty \). Moreover, observe that \( \tilde{\varphi }_k \leq f _k \leq f \) and \( f \geq 0 \), hence \( \varphi _k \leq f \)  ; and
 	\item if \( f(x) < \infty \) for each \( k > \max (|x|, f(x)) \), \( f_k(x) = f(x) \) and \( f(x) - \varphi _k(x) \leq f(x) - \tilde{\varphi }_k(x) = f_k(x) - \tilde{\varphi}_k(x) \leq \frac{1}{k} \to 0  \). Thus, \( \lim_{{k} \to {\infty}} \varphi _k (x) = f(x) \).
