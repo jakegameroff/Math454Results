@@ -1,0 +1,37 @@
+\input{../preamble.tex}
+\usepackage{todonotes}
+\begin{document}
+\thispagestyle{empty}
+\begin{center}
+	\textbf{\large MATH 454: Counter Examples} \\
+    \\ \large McGill University (Fall 2023)
+    \\ Jake R. Gameroff 
+\end{center}
+\begin{enumerate}
+	\item \textbf{Continuity of measure.} If \( m_*(A_1)  < \infty\) is dropped in the continuity of measure (i.e. \( m(\bigcap_{k \in \mathbb{N} }^{} A_{k} ) \to m(A_{k}) \)), we can take \( A_{k} = [k, \infty) \) so that \( \bigcap_{k \in \mathbb{N} }^{} A_{k} = \emptyset  \) but \( m(A_{k} ) = \infty \) for each \( k \in \mathbb{N} \).
+	\item \textbf{Existence of non-measurable set.} Let \( A \subseteq \mathbb{R}^{d}  \) have positive outer measure. Then there exists a subset \( D \subseteq A \) that is not measurable.
+	\item \textbf{Existence of non-Borel measurable set.} Let \( \varphi  \) be the Cantor-Lebesgue function, \( \mathcal{C}  \) be the Cantor set, \( \psi : x \mapsto \varphi (x) + x\), and \( E \subseteq \psi (\mathcal{C} ) \) be a non-measurable subset (since \( m_*(\psi (\mathcal{C} )) > 0  \) ). Then \( D = \psi ^{-1} (E)  \) is measurable but not a Borel set.
+	\item \textbf{Existence of non-measurable pre-image of measurable set by measurable function.} Let \( f = \psi ^{-1} \) and \( E, \D \) be as above from 3. Then \( f^{-1} (D) = (\psi ^{-1} )^{-1} (D) = \psi (D) = E    \) is not measurable.
+	\item \textbf{Composition of measurable functions is not measurable.} If \( g : A \to B \) is continuous and \( f : B \to \mathbb{R} \) is measurable, \( A \subseteq \mathbb{R}^{d}  \) is measurable and \( B \subseteq \mathbb{R} \) is a Borel set: let \( \psi, \ D, \ E \) be defined as in 3. Let \( g = \psi ^{-1}  \) and \( f = \chi_{D} \). Then \[(f \circ g)^{-1} ([1, \infty]) = g ^{-1} (f ^{-1} ([1, \infty]) ) = g ^{-1} (D) = \psi ^{-1} (D) = E\] is not measurable.
+	\item \textbf{Egorov's theorem, finite measure of domain requirement.} Take \( f_{k} = \chi_{[k, k+1)}   \) on \( [1, \infty) \) to attain pointwise convergence to 0; uniform convergence is impossible.
+	\item \textbf{Uniform boundedness in BCT.} Define \( f_{k} \coloneqq k \cdot \chi_{(0, 1/k)}(x)  \) in \( [0,1] \). Then, \( \int_{[0,1]} f_{k} = k \cdot m(0, 1/k) = 1  \) but \( f_{k} \to 0 \) so that \( \int_{[0,1]} 0 = 0 \).
+	\item \textbf{Fatou's Lemma with strict inequality.} Let \( f_{k} = k \cdot \chi_{ (0, 1/k)} \). Then \( \int_{(0,1)} \liminf_{k \to \infty} f_{k} = \int_{(0,1)} 0 < \liminf_{k \to \infty} \int_{(0,1)} f_{k} = 1    \).
+	\item \textbf{Non-measurability of slices everywhere.} Let \( D \subseteq [0,1] \) be a non-measurable set. Let \( C = \{ 0 \}  \). Then \( A = D \times C \) is measurable in \( \mathbb{R}^{2}  \) (\( D \) has measure 0). But \( A^{0} = \{ x \in \mathbb{R} : (x, 0) \in A \} = D  \) is not measurable.
+	\item \textbf{Fubini interchanging.} It is not always true that \[\int_{\mathbb{R}^{d_1} } \int_{A_{x} } f(x,y) \ dy \ dx = \int_{\mathbb{R}^{d_2} } \int_{A^{y} } f(x,y)\ dx \ dy.   \] Just take \( f(x,y) = \frac{x^{2} - y^{2} }{(x^{2} + y^{2} )^{2} }  \).
+	\item \textbf{Example of:} \( \int_{a} ^{b} f' < f(b) - f(a) \). Let \( f = \chi_{[1/2, 1]}  \) in \( [0,1] \). Then \( f' \) exists everywhere except at \( 1/2 \), and \( \int_{} f' = 0 < f(1) - f(0) = 1.\) Another example is the Cantor-Lebesgue function, it is a.e. locally constant. 
+	\item \textbf{Vitali \( c < 3 \).} Take \( F = \{ [-1, 0], [0,1] \}  \).
+	\item \textbf{Function not of bounded variation.} Take \( f(x) = x \cos \frac{\pi}{2x}  \) for \( x \in (0, 1] \) and \( 0 \) when \( x = 0 \).
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{enumerate}
+\end{document}

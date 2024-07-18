@@ -1,0 +1,37 @@
+\input{../preamble.tex}
+\usepackage{todonotes}
+\begin{document}
+
+\begin{center}
+	\textbf{\large MATH 454: Final Exam Practise} \\
+    \\ \large McGill University (Fall 2023)
+    \\ Jake R. Gameroff 
+\end{center}
+Let \( A \subseteq \mathbb{R}^{d}  \) be measurable.
+\begin{enumerate}
+	\item Let \( f : A \to [0, \infty] \) be integrable. Then for every \( \varepsilon > 0  \) there exists a \( \delta > 0  \) such that for every measurable subset \( E \subseteq A \) with \( m(E) < \delta, \) \( \int_{E} f < \varepsilon  \).
+	\item Let \( E \subseteq \mathbb{R}^{d}  \). Show that \( m_*(E) = \inf \{ m(\mathcal{O} ) :E \subseteq  \mathcal{O}, \mathcal{O} \mbox{ open}  \}  \). Use this result to show that \( m_*(E) = \sup_{}\{ m(F) : F \subseteq E, F \mbox{ closed} \}   \).
+	\item Let \( f : A \to [0,\infty] \) be measurable. Let \( \{ E_{k}  \} _{ k \in \mathbb{N} }  \) be a sequence of mutually disjoint measurable subsets of \( A \) whose union is \( E \). Show that \[\int_{E} f = \sum_{k \in \mathbb{N} }^{}\int_{E_{k} } f.\]
+	\item Let \( \{ f_{k}  \} _{k \in \mathbb{N} }  \) be a sequence of non-negative, measurable functions on \( A \). Show that \(\sum_{k \in \mathbb{N} }^{}f_{k} \) is measurable and \[\int_{A} \sum_{k \in \mathbb{N} }^{}f_{k} = \sum_{k \in \mathbb{N} }^{}\int_{A} f_{k}. \] 
+	\item Show that the conclusion of Egorov's theorem can fail if the domain of \( f \) has infinite measure.
+	\item Provide a counter-example for each of the following:
+		\begin{enumerate}
+			\item Show that the bounded convergence theorem does not hold for the Reimann integral.
+			\item Show that the bounded convergence theorem does not hold if \( \{ f_{k}  \} _{k \in \mathbb{N} }  \) is a sequence of functions such that for each \( k \in \mathbb{N}  \) there exists an \( m_{k} \in \mathbb{N}   \) such that \( |f_{k} | \leq m_{k}  \) (there is not one \( m \) for every \( k \)).
+			\item Show that \( \leq \) can be strict in Fatou's lemma
+			\item Let \( E = E_1 \times E_2 \subseteq \mathbb{R}^{d_1} \times \mathbb{R}^{d_2}   \) be measurable. Are \( E_1 \) and \( E_2 \) measurable?
+		\end{enumerate}
+	\item State and prove Chebyshev's inequality. Show that \( \int_{A} f = 0 \iff f= 0  \) a.e. in \( A \). Show that \( \int_{A} f < \infty\implies  \) \( f < \infty \) a.e. in \( A \).
+	\item Let \( f : A \to \mathbb{R} \) be bounded and measurable. Show that there exists a sequence of simple functions that converge uniformly to \( f \) in \( A \).
+	\item Let \( A \subseteq \mathbb{R}^{d - 1}  \) be measurable and \( f : A \to [0, \infty ]\) be a function. Show that \( f \) is measurable if and only if \[\Gamma \coloneqq \{ (x,y) \in \mathbb{R}^{d- 1} \times \mathbb{R} : 0 \leq y \leq f(x) \} \] is measurable. Also, if \( f \) is measurable, show that \( m(E) = \int_{A} f \).
+	\item Let \( A \subseteq \mathbb{R}^{d}  \) be measurable. Show that for almost every \( y \in \mathbb{R}^{d_2}  \), (a) \( A^{y}  \) is measurable, (b) \( y \mapsto m(A^{y})  \) is measurable, and (c) \( \int_{\mathbb{R}^{d_2} }  m(A^{y} ) = m(A)\).
+	\item State the definition of Lipschitz continuity. Show that if \( f : [a,b] \to \mathbb{R} \) is continuous and differentiable in \( (a,b) \), and \( f' \) is bounded, then \( f \) is of bounded variation on \( [a,b] \).
+	\item Show that \( f : [a,b] \to \mathbb{R} \) is of bounded variation if and only if it can be written as the difference of two increasing functions.
+	\item State both the simple approximation lemma and simple approximation theorem. Show that the simple approximation gives a sequence of simple functions that converge \emph{uniformly} to \( f \) on its domain.
+	
+	
+	
+	
+	
+\end{enumerate}
+\end{document}
