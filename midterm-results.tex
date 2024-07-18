@@ -1,0 +1,139 @@
+\input{../preamble.tex}
+\usepackage{todonotes}
+\begin{document}
+
+\begin{center}
+	\textbf{\large MATH 454: Examinable Results} \\
+    \large McGill University (Fall 2023)
+    \\ Jake R. Gameroff 
+\end{center}
+\begin{enumerate}
+	\item \textbf{Monotonicity of outer measure.} \( A \subseteq B \subseteq \mathbb{R}^{d} \implies m_*(A) \leq m_*(B).\) 
+		\begin{proof}\renewcommand{\qedsymbol}{}
+		Any covering of \( B \) by closed cubes is a covering of \( A \). Thus if \( V_A \) and \( V_B \) are the sets over which we take the infimum to attain the outer measure of \( A \) and \( B \) respectively, we must have that \( V_B \subseteq V_A \) so that \(m_*(A) = \inf V_A \leq \inf V_B = m_*(B) \) as required.
+	        \end{proof}
+	\item \textbf{Countable sub-additivity of outer measure.} If \( \{ A_k \}_{k=1} ^{\infty}  \) is a sequence of subsets of \( \mathbb{R}^{d}  \) with \(A \coloneqq \bigcup_{k=1}^{\infty} A_k \), then \( m_*(A) \leq \sum_{k=1}^{\infty}m_*(A_k)   \).
+	\begin{proof}\renewcommand{\qedsymbol}{}
+	If there exists a \( k \in \mathbb{N}  \) such that \( m_*(A_k) = \infty \) then there is nothing to prove, hence we suppose otherwise. Let \( \varepsilon > 0 \) be fixed. For each \( k \in \mathbb{N}  \), there is a covering of \( A_k \) by closed cubes \( (Q_{k,j,\varepsilon })_{j \in \mathbb{N} }   \) such that \( A_k \subseteq \bigcup_{j=1}^{\infty} Q_{k,j,\varepsilon }  \) and \( \sum_{j=1}^{\infty}\mbox{vol}(Q_{k,j,\varepsilon } ) < m_*(A) + \frac{\varepsilon }{2^{k} }  \). Thus, \[\bigcup_{k=1}^{\infty} A_k \subseteq \bigcup_{k=1}^{\infty} \bigcup_{j=1}^{\infty} Q_{k,j,\varepsilon } \implies m_*\left ( {\bigcup_{k=1}^{\infty} A_k} \right ) \leq \sum_{k=1}^{\infty}\sum_{j=1}^{\infty} \mbox{vol}(Q_{k,j,\varepsilon } ) < \sum_{k=1}^{\infty} \left(m_*(A) + \frac{\varepsilon }{2^{k} } \right)  = \sum_{k=1}^{\infty}m_*(A) + \varepsilon .  \] Since \( \varepsilon  \) was arbitrary, we obtain the required result.
+\end{proof}
+\item \textbf{Additivity of outer measure with assumption.} Let \( A_1, A_2 \subseteq \mathbb{R}^{d}  \) be such that \( d(A_1, A_2) = \inf_{x \in A_1, y \in A_2}|x-y|  > 0 \). Then \( m_*(A_1 \cup A_2) = m_*(A_1) + m_*(A_2)   \).
+	\begin{proof}\renewcommand{\qedsymbol}{}
+	By sub-additivity, we have \( m_*(A_1 \cup A_2) \leq m_*(A_1) + m_*(A_2)  \), so we prove the converse inequality. Let \( \{ Q_k \}_{k=1} ^{\infty}  \) be a sequence of closed cubes such that \( A_1 \cup A_2 \subseteq \bigcup_{k=1}^{\infty} \mbox{vol}(Q_k)  \) and \( 0 < \delta < d(A_1, A_2) \). By sub-dividing the cubes, we may assume that \( \mbox{diam}(Q_k) = \sup_{}\{ |x-y| : x, y \in Q_k \} < \delta  \). For \( i = 1, 2 \) let \( K_i \coloneqq \{ k \in \mathbb{N} : Q_k \cap A_i \neq \emptyset  \} \). By summing we obtain \( m_*(A_1) + m_*(A_2) \leq \sum_{k \in K_1}^{}\mbox{vol}(Q_k) + \sum_{k \in K_2}^{}\mbox{vol}(Q_k)  \). By the choice of \( \delta \), \( K_1 \cap K_2 \neq \emptyset  \) so that \[\sum_{k \in K_1}^{}\mbox{vol}(Q_k) + \sum_{k \in K_2}^{}\mbox{vol}(Q_k) = \sum_{k \in K_1 \cup K_2}^{}\mbox{vol}(Q_k) \leq \sum_{k=1}^{\infty}\mbox{vol}(Q_k). \] By taking the infimum over all coverings \( Q_k \), we then obtain \( m_*(A_1) + m_*(A_2) \leq m_*(A_1 \cup A_2)  \) which completes the proof.
+	\end{proof}
+\item \textbf{Countable unions of measurable sets.} If \( \{ A_k \}_{k=1} ^{\infty}  \) is a sequence of measurable sets then \( \bigcup_{k=1}^{\infty} A_k \) is measurable.
+	\begin{proof}\renewcommand{\qedsymbol}{}
+	Let \( \varepsilon > 0 \). For each \( k \in \mathbb{N}  \) there exists an open set \( \mathcal{O}_{k,\varepsilon }  \) such that \( A_k \subseteq \mathcal{O} _{k,\varepsilon }  \) and \( m_*(\mathcal{O} _{k,\varepsilon } - A_k) < \frac{\varepsilon }{2^{k} }  \). Let \( \mathcal{O} _\varepsilon  \coloneqq\bigcup_{k=1}^{\infty} \mathcal{O} _{k,\varepsilon }  \), which is open (union of open sets). By construction, \( \bigcup_{k=1}^{\infty} A_k \subseteq \mathcal{O} _\varepsilon  \) so that \( m_*(\mathcal{O} _\varepsilon  - \bigcup_{k=1}^{\infty} A_k) \leq m_*(\bigcup_{k=1}^{\infty} (\mathcal{O} _{k,\varepsilon }  - A_k))   \) by monotonicity since \( \bigcup_{k=1}^{\infty} \mathcal{O} _{k,\varepsilon } - \bigcup_{k=1}^{\infty} A_k \subseteq \bigcup_{k=1}^{\infty} (\mathcal{O} _{k,\varepsilon } - A_k)  \). Thus, we conclude that \[m_*\left ( {\mathcal{O} _\varepsilon  - \bigcup_{k=1}^{\infty} A_k} \right ) \leq m_*\left ( {\bigcup_{k=1}^{\infty} (\mathcal{O} _{k,\varepsilon } - A_k)} \right )  \leq \sum_{k=1}^{\infty}m_*(\mathcal{O} _{k,\varepsilon } - A_k ) < \sum_{k=1}^{\infty}\frac{\varepsilon }{2^{k} } = \varepsilon .  \] 
+	\end{proof}
+\item \textbf{Measurability of closed sets.}
+	\begin{proof}\renewcommand{\qedsymbol}{}
+		Let \( F \subseteq \mathbb{R}^{d} \) be closed and bounded. There is an open cube \( Q \) such that \( \mathcal{O} \coloneqq Q - F \) is open and hence a corresponding sequence of mutually disjoint open cubes \( \{ Q_k \} _{k=1} ^{\infty} 	 \) such that \( \mathcal{O} = \bigcup_{k=1}^{\infty} \overline{Q}_k \). For \( n \in \mathbb{N}  \), let \( \mathcal{O} _n\coloneqq Q - \bigcup_{k=1}^{n} \overline{Q}_k \), which is open since \( Q \) is open and each \( \overline{Q}_k \) is closed. Moreover, \( m_*(\mathcal{O}_n - F) = m_*(\mathcal{O} - \bigcup_{k=n+1}^{\infty} \overline{Q}_k) \leq \sum_{k=n+1}^{\infty}m_*(\overline{Q}_k)   \) by monotonicity and sub-addtivitiy. But \( \sum_{k=n+1}^{\infty}\mbox{vol}(\overline{Q}_k) = \sum_{k=n+1}^{\infty}\mbox{vol}(Q_k) \to 0  \) as \( n \to \infty \) since \( \sum_{k=1}^{\infty} \mbox{vol}(Q_k) = m_*(O) \leq m_*(Q) < \infty \). Hence compact sets are measurable. Thus, given any closed set \( A \), write \( A = \bigcup_{k=1}^{\infty} (A \cap [-k,k]^{d} ) \) so that \( A \) is written as a countable union of compact and hence measurable sets (note that \( A \cap [-k,k]^{d}  \) is a closed subset of a compact set and hence compact).
+	\end{proof}
+\item \textbf{Measurability of complements.} Let \( A \subseteq \mathbb{R}^{d}  \) be measurable. Then \( A^{c}  \) is measurable.
+	\begin{proof}\renewcommand{\qedsymbol}{}
+	By the measurability of \( A \), for each \( k \in \mathbb{N}  \) there exists an open set \( \mathcal{O} _k \) such that \( A \subseteq \mathcal{O} _k \) and \( m_*(\mathcal{O} _k - A) < 1 / k  \). Let \( F_k \coloneqq \mathcal{O} _k^{c}   \) and \( F \coloneqq \bigcup_{k=1}^{\infty} F_k \) (measurable as countable union of closed sets). Let \( N \coloneqq A^{c} - F = A^{c} - \bigcup_{k=1}^{\infty} \mathcal{O} _k^{c}  = A^{c} \cap  \bigcap_{k=1}^{\infty} \mathcal{O}_k \subseteq \mathcal{O}_k \cap A^{c}  =  \mathcal{O} _k - A \) so that \( m_*(N) \leq m_*(\mathcal{O} _k - A) \leq 1 / k \to 0  \) as \( k \to \infty \). Thus, \( A^c = F \cup N  \), which is measurable (finite union of closed set and set of measure 0, completes the proof.
+	\end{proof}
+\item \textbf{Measurability of countable intersections.} Let \( \{ A_k \} _{k=1} ^{\infty}  \) be a sequence of measurable subsets of \( \mathbb{R}^{d}  \). Then \( \bigcap_{k=1}^{\infty} A_k  \) is measurable.
+	\begin{proof}\renewcommand{\qedsymbol}{}
+	Since for each \( k \in \mathbb{N}  \) \( A_k \) is measurable, so is \( A_k^{c}  \). Thus, \(\bigcap_{k=1}^{\infty} A_k = \bigcup_{k=1}^{\infty} A^{c}_k\) is a union of measurable sets and hence measurable. 
+	\end{proof}
+\item \textbf{Continuity of measure for increasing sets.} Let \( \{ A_k \} _{k=1} ^{\infty}  \) be a sequence of measurable subsets of \( \mathbb{R}^{d}  \) such that for each \( k \in \mathbb{N} \), \( A_k \subseteq A_{k+1}  \). Then \( m_*(\bigcup_{k=1}^{\infty} A_k) = \lim_{{k} \to {\infty}} m(A_k).  \) 
+\begin{proof}\renewcommand{\qedsymbol}{}
+
+If there is a \( k_0 \in \mathbb{N} \) such that \( m(A_{k_0} ) = \infty \), then by monotonicity \( m(\bigcup_{k=1}^{\infty} A_k) = \infty \) and since \( k \geq k_0 \implies A_k \subseteq A_{k_0}  \), we likewise have \( \lim_k m(A_k) = \infty \) and there is nothing to prove. Hence suppose there is no such \( k_0 \).
+Write \( \bigcup_{k=1}^{\infty} A_k \) as \( \bigcup_{k=1}^{\infty} B_k \), where \( B_1 \coloneqq A_1 \) and for \( k \geq 2 \), \( B_k \coloneqq A_k - A_{k-1}  \). Since the sets \( \{ B_k \} _k \) are mutually disjoint, by countable additivity, we have
+\begin{align*}
+	m\left ( {\bigcup_{k=1}^{\infty} A_k} \right ) &= m\left ( {\bigcup_{k=1}^{\infty} B_k} \right )  = \sum_{k=1}^{\infty}m(B_k) = \lim_{{n} \to {\infty}} \sum_{k=1}^{n} m(B_k) = \lim_{{n} \to {\infty}} \left ( m(A_1) +  \sum_{k=2}^{n} m(A_k - A_{k-1} ) \right ) \\
+&= \lim_{{n} \to {\infty}} \left ( {m(A_1) + \sum_{k=2}^{n}(m(A_k) - m(A_{k-1} ))} \right ) = \lim_{{n} \to {\infty}} m(A_n). \tag{As \( \forall k : m(A_k) < \infty \) }
+\end{align*}
+\end{proof}
+\item \textbf{Continuity of measure for decreasing sets.} Let \( \{ A_k \} _{k=1} ^{\infty}  \) be a sequence of measurable subsets of \( \mathbb{R}^{d}  \) such that \( A_{k+1} \supseteq A_k \) for \( k \in \mathbb{N}  \) and \( \exists  k_0 \in \mathbb{N}  \) such that \( m(A_{k_0} ) < \infty \).
+	\begin{proof}\renewcommand{\qedsymbol}{}
+		Suppose without loss of generality that \( m(A_1) < \infty \). Let \( B_k \coloneqq A_k - A_{k+1}  \) for each \( k \in \mathbb{N}  \) so that \( A_1 = \bigcap_{k=1}^{\infty} A_k \cup \bigcup_{k=1}^{\infty} B_k \) is a disjoint union of measurable sets. Hence, \[m(A_1) = m\left ( {\bigcap_{k=1}^{\infty} A_k} \right ) + \lim_{{N} \to {\infty}} \sum_{k=1}^{N-1}(m(A_k) - m(A_{k+1} )) = m\left ( {\bigcap_{k=1}^{\infty} A_k} \right ) + m(A_1) - \lim_{{N} \to {\infty}} m(A_N).\] Hence since \( m(A_1) < \infty \), it follows that \( m\left ( {\bigcap_{k=1}^{\infty} A_k} \right ) = \lim_{{N} \to {\infty}} m(A_k) \) as required.
+	\end{proof}
+\item \textbf{Approximation of measurable sets.} Let \( \varepsilon > 0 \). The following are equivalent:
+	\begin{enumerate}
+		\item \( A \subseteq \mathbb{R}^{d} \) is measurable.
+		\item There exists an open set \( \mathcal{O}  \) such that \( A \subseteq \mathcal{O}  \) and \( m_*(\mathcal{O} - A) < \varepsilon .  \)
+		\item There exists a closed set \( F  \) such that \( F \subseteq A \) and \( m(A - F) < \varepsilon  \).
+		\item There is a \( G_\delta  \) set \( G \) and a set \( N \subseteq G \) such that \( m_*(N) = 0 \) and \( A = G \setminus N \).
+		\item There is an \( F_\sigma  \) set \( F \) and a set \( N \subseteq A \setminus F \) such that \( m_*(N) = 0 \) and \( A = F \cup N \).
+	\end{enumerate}
+	\begin{proof}\renewcommand{\qedsymbol}{}$ $ \newline
+	(a) iff (b) is by definition. (a) implies (d). Since \( A \) measurable, \( \forall n \in \mathbb{N}  \) there exists an open set \( \mathcal{O} _k \) such that \( A \subseteq \mathcal{O} _k \) and \( m_*(\mathcal{O} _k \setminus A) < 1 / k \). Let \( G \coloneqq \bigcap_{k=1}^{\infty} \mathcal{O} _k \) be a \( G_\delta  \) set containing \( A \). Let \( N \coloneqq G \setminus A \) so that for \( k \in \mathbb{N}  \), \( m(N) \leq m(\mathcal{O} _k \setminus A) < 1/k \to 0\) (monotonicity). (d) implies (a). \( G \) is measurable (countable intersection of measurable sets) and \( N \) is measurable as its measure is 0. Hence \( G \setminus N = G \cap N^{c} = A \) is measurable.
+
+	(a) iff (c). \( A \) measurable \( \iff  A^{c} \) measurable \( \iff  \) for each \( \varepsilon > 0 \) there exists an open set \( \mathcal{O} _\varepsilon  \) such that \( A^{c} \subseteq \mathcal{O} _\varepsilon  \) and \( m_*(\mathcal{O} _\varepsilon \setminus A^{c} ) = m_*(\mathcal{O} _\varepsilon  \cap A) = m_*(A \setminus \mathcal{O} _\varepsilon ^{c} ) < \varepsilon    \), and \( F \coloneqq \mathcal{O} _\varepsilon ^{c}  \) contains \( A \) since \( A^{c} \subseteq \mathcal{O} _\varepsilon ^{c}  \). (d) iff (e). (d) is equivalent to: there exists an \( F_\sigma  \) set \( F \coloneqq G^{c}  \) and a set \( N \subseteq F^{c} = G \) such that \( A^{c} = F^{c} \setminus N \), i.e. \( A = F \cup N \).
+	\end{proof}
+\item \textbf{Continuous functions are measurable.} Let \( A \subseteq \mathbb{R}^{d}  \) be measurable and let \( f : A \to \mathbb{R} \) be continuous. Then \( f \) is measurable.
+	\begin{proof}\renewcommand{\qedsymbol}{} Let \( c \in \mathbb{R} \) be fixed. Then \( f^{-1} ([-\infty,c)) = f^{-1} ((-\infty,c))\) since \( -\infty \) is never attained by \( f \) by continuity. Since \( f \) is continuous and \( (-\infty,c) \) is open, \( f^{-1} ((-\infty,c)) \) is open and hence measurable. Since \( c \) was arbitrary, we conclude that \( f \) is measurable.
+	\end{proof}
+\item \textbf{Measurability of functions equal a.e. to a measurable function.} Let \( f, g : A \to \overline{\mathbb{R}} \), where \( A \subseteq \mathbb{R}^{d}  \) and \( f \) are measurable; \( f = g \) a.e. in \( A \). Then \( g \) is measurable.
+	\begin{proof}\renewcommand{\qedsymbol}{}
+		Define \( N \coloneqq \{ x \in A : f(x) \neq g(x) \}  \) so that \( m_*(N) = 0 \) since \(  f = g  \) a.e. in \( A \). Let \( c \in \mathbb{R} \) be fixed so that \[g^{-1} ([-\infty,c)) =\underbrace{(g^{-1}([-\infty,c) \cap N) )}_{(\mbox{a})} \cup \underbrace{(g^{-1}  ([-\infty,c)) \setminus N)}_{(\mbox{b})}, \] where (a) is a subset of \( N \) and hence of measure 0 and (b) equals \( f^{-1}([-\infty,c)) \setminus N  \). Since \( N \) and \( f \) are measurable, we obtain that \( f^{-1}([-\infty,c)) \setminus N  \) is measurable so that \( g^{-1}([-\infty,c)) \setminus N  \) is measurable since \( f = g \) everywhere in \( A \setminus N \). Thus, \( g^{-1}([-\infty,c)) = f^{-1}([-\infty,c))\setminus N \cup N   \) is a union of measurable sets and hence measurable.
+	\end{proof}
+\item \textbf{Measurability of sum of measurable functions.} Let \( A \subseteq \mathbb{R}^{d}  \) and \( f, g : A \to \overline{\mathbb{R}} \) be measurable. Then \( f+g \) is measurable so long as \( g (x) > -\infty \) whenever \( f(x) = \infty \) and \( g(x) < \infty \) whenever \( f(x) = -\infty \).
+	\begin{proof}
+	For every \( c \in \mathbb{R} \) and \( x \in A \), \( x \in (f+g)^{-1}([-\infty,c)) \iff f(x) + g(x) < c \iff f(x) < c - g(x)  \) (never true if \( f(x) = \infty \), always true if \( f(x) = -\infty \) and \( g(x) < \infty \)) \( \iff  \) by density \( \exists \ q \in \mathbb{Q} : f(x) < q < c - g(x) \iff \exists \ q \in \mathbb{Q}  : x \in f^{-1}([-\infty,c)) \cap g^{-1}([-\infty, c - q))   \) so that \[(f+g)^{-1}([-\infty,c)) = \bigcup_{q \in \mathbb{Q} }^{} f^{-1}([-\infty,c)) \cap g^{-1}([-\infty,c - q))   \] is measurable as \( f,g \) are and this is a countable union of measurable sets.
+	\end{proof}
+\item \textbf{Measurability of inverse image of Borel sets by measurable functions.} Let \( A \subseteq \mathbb{R}^{d}  \) be a measurable set and \( f: A \to \overline{\mathbb{R}}\) be a measurable function. Then, for every Borel set \( B \subseteq \mathbb{R} \), then \( f^{-1}(B)  \) is measurable.
+	\begin{proof}\renewcommand{\qedsymbol}{}
+	Define \( \Omega \coloneqq \{ B \subseteq \mathbb{R} : f^{-1}(B) \mbox{ is measurable}  \}  \). We show that \( \Omega \) is a \(\sigma\)-algebra containing the open sets. By definition of Borel sets, this suffices to prove that \( \Omega\) contains the Borel sets.
+	\begin{enumerate}
+		\item \( f^{-1}(\mathbb{R}) = f^{-1}(\bigcup_{k=1}^{\infty} [-k,k])  = \bigcup_{k=1}^{\infty} f^{-1}([-k,k])  = \bigcup_{k=1}^{\infty} f^{-1}([-\infty,k] \cap [-k, \infty]) = \bigcup_{k=1}^{\infty}( f^{-1}([-\infty,k]) \cap f^{-1}([-k,\infty]) )   \) is measurable since countable unions and intersections preserve measurability and \( f \) is measurable. It follows that \( \mathbb{R} \in \Omega \), since \( f^{-1}(\mathbb{R})  \) is measurable.
+	\item Suppose \( B_1,B_2 \in \Omega \), then \( f^{-1}(B_1 \setminus B_2) = f^{-1} (B_1) \setminus f^{-1}(B_2)  \) is measurable since \( f^{-1}(B_1) , f^{-1}(B_2)  \) are measurable.
+		\item If \( (B_k) \) is a sequence in \( \Omega \), then \( f^{-1}(\bigcup_{k=}^{\infty} B_k) = \bigcup_{k=1}^{\infty} f^{-1}(B_k)   \) is measurable since \( f^{-1}(B_k)  \) is measurable for each \( k \in \mathbb{N}  \).
+
+
+		
+	\end{enumerate}
+Let \( \mathcal{O} \subseteq \mathbb{R} \) be open. Then there exists a sequence \( (I_k) \) of mutually disjoint open intervals in \( \mathbb{R} \) such that \( \mathcal{O} = \bigcup_{k=1}^{\infty} I_k. \) Then \( f^{-1}(\mathcal{O}) = f^{-1}(\bigcup_{k=1}^{\infty} I_k) = \bigcup_{k=1}^{\infty} f^{-1}(I_k)    \). It remains to be shown that the preimage of each \( I_k \) is measurable. Let \( a_k , b_k \in \overline{\mathbb{R}} \) be such that \( I_k = (a_k , b_k) \) for some \( k \geq 1 \). We have two cases.
+\begin{enumerate}
+	\item If \( -\infty < a_k < b_k < \infty \), then \( f^{-1}(a_k, \infty] \cap [-\infty, b_k)) = f^{-1}((a_k, \infty]) \cap f^{-1}([-\infty, b_k))    \) is measurable.
+	\item If \( a_k = -\infty \) and \( b_k < \infty \), then \( f^{-1}((a_k, b_k)) = f^{-1}((-\infty, b_k)) = f^{-1}(\bigcup_{k=1}^{\infty} (-k,b_k)) = \bigcup_{k=1}^{\infty} f^{-1}((-k, b_k))    \) is measurable.
+	\item If \( b_k = \infty \) and \( a_k > -\infty \), then \( f^{-1}((a_k, b_k)) = f^{-1}((a_k, \infty)) = f^{-1}(\bigcup_{k=1}^{\infty} (a_k, k)) = \bigcup_{k=1}^{\infty} f^{-1}(a_k, k)     \) and then use (1).
+	\item If \( a_k = - \infty \) and \( b_k = \infty \), then \( f^{-1}((-\infty, \infty))  = f^{-1}(\mathbb{R})  \) is measurable by (1).	
+\end{enumerate}
+In all cases, by using the measurability by countable unions and intersections we obtain that \( f^{-1} (I_k) \) is measurable. Thus, \( \Omega \) is a \(\sigma\)-algebra containing the open sets and hence the Borel sets.
+\end{proof}
+\item \textbf{Measurable functions equivalences.} Let \( A \subseteq \mathbb{R}^{d}  \) be measurable and \( f: A \to \overline{\mathbb{R}} \). The following are equivalent. 
+\begin{enumerate}
+	\item For all \( c \in \mathbb{R} \), \( f^{-1}((c, + \infty]) = f^{-1}(\{ x \in \overline{\mathbb{R}} : c < x \leq + \infty \} )   \) is measurable;
+	\item For all \( c \in \mathbb{R} \), \( f^{-1}([c, + \infty]) = f^{-1}(\{ x \in \overline{\mathbb{R}} : c \leq x \leq + \infty \} )   \) is measurable;
+	\item For all \( c \in \mathbb{R} \), \( f^{-1}([-\infty, c)) = f^{-1}(\{ x \in \overline{\mathbb{R}} : - \infty \leq x < c \} )   \) is measurable;
+	\item For all \( c \in \mathbb{R} \), \( f^{-1}([-\infty, c]) = f^{-1}(\{ x \in \overline{\mathbb{R}} : - \infty \leq x \leq c \} )   \) is measurable.
+\end{enumerate}
+\begin{proof}\renewcommand{\qedsymbol}{}
+\((1 \implies 2)\) follows from \( f^{-1}([c , + \infty]) = f^{-1}\left ( {\bigcap_{k=1}^{\infty} (c - \frac{1}{k} , +\infty] } \right ) = \bigcap_{k=1}^{\infty} f^{-1}((c - \frac{1}{k} , + \infty])     \) and the fact that countable intersections of measurable sets are measurable. (\( 2 \implies 3 \)) follows from \( f^{-1}([-\infty, c)) = f^{-1}(\overline{\mathbb{R}} \setminus [c, +\infty]) = A \setminus f^{-1}((c,+\infty])    \) and the fact that complements of measurable sets are measurable. \( (3 \implies 4) \) follows from \( f^{-1}([-\infty, c]) = \bigcap_{k=1}^{\infty} f^{-1} ([-\infty, c + \frac{1}{k} ))  \) and \( (4 \implies 1) \) follows from \( f^{-1}((c, + \infty]) = A \setminus f^{-1}([-\infty, c])   \).
+\end{proof}
+\item \textbf{Measurability of pointwise a.e. limits of measurable functions.} Let \( \{ f_k \} _{k \in \mathbb{N} }  \) be a sequence of measurable functions from a measurable subset \( A \subseteq \mathbb{R}^{d}  \) to \( \overline{\mathbb{R}} \) converging pointwise a.e. in \( A \) to \( f \), i.e. \( \lim_{{n} \to {\infty}} f_n(x) = f(x) \) for a.e. \( x \in A \). Then \( f \) is measurable.
+	\begin{proof}\renewcommand{\qedsymbol}{}
+		Let \( N = \{ x \in A | f_k(x) \not\to f(x) \}  \). Then by hypothesis \( m_*(N) = 0 \). For each \( c \in \mathbb{R} \) and \( x \in A \setminus N \) \( f(x) < c \iff \lim_{{k} \to {\infty}} f_k(x) < c \iff \lim_{{k} \to {\infty}} f_k(x) < c \iff \exists \ n,K \in \mathbb{N} : \forall k \geq K : f_k(x) < c - \frac{1}{n} \). Thus, \[f^{-1}([-\infty,c)) \setminus N = \bigcup_{n=1}^{\infty} \bigcup_{K=1}^{\infty} \bigcap_{k=K}^{\infty} f^{-1}_k\left ( {[-\infty, c - 1 / n)} \right ) \setminus N\] is measurable by the measurability of \( f_k \) (and since measure is preserved via countable unions and complements). Thus, it follows that \( f^{-1}([-\infty,c)) = f^{-1}([-\infty,c)\setminus N \cup \underbrace{f^{-1}([-\infty,c))\cap N}_{\subseteq N, m_*(N) = 0}     \) is measurable. Hence \( f \) is measurable as \( c \) was arbitrary.
+	\end{proof}
+\item \textbf{Measurability of composition of continuous functions with measurable functions.} Let \( f \) be measurable and finite-valued \( g \) be continuous. Then \( g \circ f \) is measurable.
+	\begin{proof}\renewcommand{\qedsymbol}{}
+	Let \( c \in \mathbb{R} \) be fixed. Let \( \mathcal{O} \coloneqq g^{-1}((-\infty, c))  \) so that \( \mathcal{O}  \) is open as \( g \) is continuous hence preimages of open sets are open. Thus \( (g \circ f )^{-1}((-\infty,c)) = f^{-1}(g^{-1}((-\infty,c)) )  = f^{-1}(\mathcal{O} )  \) is measurable as \( \mathcal{O} 	 \) is Borel.
+	\end{proof}
+\item \textbf{Simple approximation lemma.} Let \( A \subseteq \mathbb{R}^{d}  \) be a measurable set with \( m(A) < \infty \) and \( f : A \to \mathbb{R} \) be measurable and such that there exists \( M > 0 \) such that for each \( x \in A \), \( |f(x)| < M \). Then for each \( \varepsilon > 0 \) there exist simple functions \( \varphi_\varepsilon, \chi_\varepsilon  : A \to \mathbb{R} \) such that \(\varphi_\varepsilon  \leq f \leq \chi_\varepsilon \leq \varphi_\varepsilon  + \varepsilon .\)
+	\begin{proof}\renewcommand{\qedsymbol}{}
+	Let \( m_\varepsilon  \in \mathbb{N}  \) be large enough so that \( \frac{2M}{m_\varepsilon } < \varepsilon  \). For each \( k \in \{ 0, 1, \hdots , m_\varepsilon  \}  \), let \( y_{k,\varepsilon } \coloneqq M\left(\frac{2k}{m_\varepsilon } - 1\right)  \) and for \( k \in \{ 0,1,\hdots ,m_\varepsilon -1 \}  \) let \( A_{k, \varepsilon } \coloneqq f^{-1}([y_{k,\varepsilon }, y_{k+1,\varepsilon } ) )  \). Then the sets \( (A_{k,\varepsilon } )_k \) are measurable (inverse image of Borel sets by measurable function), disjoint (since the sets \( ([y_{k,\varepsilon } , y_{k+1, \varepsilon } ))_k \) are), \( m(A_{k,\varepsilon } ) < \infty \) (\( m(A) < \infty \)), and \( \bigcup_{k=1}^{m_\varepsilon  - 1} A_{k,\varepsilon } = f^{-1}(\bigcup_{k=1}^{m_\varepsilon  - 1} [y_{k,\varepsilon } , y_{k+1, \varepsilon } ) )   = f^{-1}([-M,M))= A \) since \( |f| <M   \) in \( A \).
+
+Now define \[ \varphi_{k,\varepsilon } \coloneqq \sum_{k = 0}^{m_\varepsilon  - 1} y_{k,\varepsilon }\chi_{A_{k,\varepsilon } }    \mbox{ and } \chi_\varepsilon \coloneqq  \sum_{k=0}^{m_\varepsilon  - 1} y_{k+1, \varepsilon }\chi_{A_{k, \varepsilon } } .  \] Since \( y_{k,\varepsilon } \leq f < y_{k+1, \varepsilon } < y_{k,\varepsilon } + \varepsilon   \) in \( A_{k,\varepsilon }  \) for all \( k \in \{ 0, 1, \hdots , m_\varepsilon -  1 \}  \), it follows that \( \varphi_\varepsilon \leq f < \chi_\varepsilon < \varphi _\varepsilon + \varepsilon  \).
+
+	\end{proof}
+\item \textbf{Simple approximation theorem.} Let \( A \subseteq \mathbb{R}^{d}  \) be measurable and \( f : A \to \overline{\mathbb{R}} \) be a measurable function. Then there exists a sequence of simple functions \( (\varphi _k)_{k \in \mathbb{N} }  \) on \( A \) such that
+\begin{enumerate}
+	\item \(\forall x \in A, k \in \mathbb{N} : |\varphi _k(x)| \leq |\varphi _{k+1}(x) | \leq |f(x)| \); and
+	\item \(\forall x \in A : \lim_{{k} \to {\infty}} \varphi _k(x) = f(x) \).
+\end{enumerate}
+Moreover, if \( f \geq 0 \) in \( A \), then we can choose \(( \varphi _k )_k\) such that \( \varphi _k \geq 0 \) in \( A \) for each \( k \in \mathbb{N}  \).
+\begin{proof}\renewcommand{\qedsymbol}{}
+We first suppose \( f \geq 0 \) in \( A \). For each \( k \in \mathbb{N}  \) let \( f_k\coloneqq \min (f,k)\chi_{V_{k} (0)}  \). Since \( f_k \leq k  \) and \( f_k = 0 \) in \( \mathbb{R}^{d} \setminus V_k(0) \), we can apply the simple approximation lemma to \( f_k \), which gives that there exists a simple function \( \tilde{\varphi}_k : A \to V_k(0) \to \mathbb{R} \) such that \( \tilde{\varphi}_k \leq f_k \leq \tilde{\varphi}_k + \frac{1}{k}  \) in \( V_k(0). \) By extending \( \tilde{\varphi}_k \) by 0 in \( \mathbb{R}^{d} \setminus V_k(0) \), we may consider \( \phi_k \) as a function defined in \( \mathbb{R}^{d}  \) such that \( \tilde{\varphi}_k \leq f_k \leq \tilde{\varphi}_k + \frac{1}{k}  \) in \( \mathbb{R}^{d}  \), since \( f_k = 0 \) in \( \mathbb{R}^{d} \setminus V_k(0) \).
+
+Define \( \varphi _k \coloneqq \max (\tilde{\varphi}_1, \hdots , \tilde{\varphi}_k , 0) \) so that \( \varphi_{k+1} \geq \varphi _k \geq 0   \) for each \( k \in \mathbb{N}  \). Moreover, at each \(x \in A,\)
+\begin{itemize}
+	\item if \( f(x) = \infty \) for each \( k > |x| \), then \( f_k(x) = k \) and \( \varphi _k (x) \geq \tilde{\varphi }_k(x) > f_k(x) - \frac{1}{k} = k - \frac{1}{k}  \), hence \( \lim_{{k} \to {\infty}} \varphi _k (x) = \infty \). Moreover, observe that \( \tilde{\varphi }_k \leq f _k \leq f \) and \( f \geq 0 \), hence \( \varphi _k \leq f \)  ; and
+	\item if \( f(x) < \infty \) for each \( k > \max (|x|, f(x)) \), \( f_k(x) = f(x) \) and \( f(x) - \varphi _k(x) \leq f(x) - \tilde{\varphi }_k(x) = f_k(x) - \tilde{\varphi}_k(x) \leq \frac{1}{k} \to 0  \). Thus, \( \lim_{{k} \to {\infty}} \varphi _k (x) = f(x) \).
+\end{itemize}
+It remains to prove the result holds when \( f \) can change sign. In this case, write \( f = f_+ - f_- \) where \( f_+ \coloneqq \max (f , 0) \) and \( f_- \coloneqq  \max(-f,0) \) and apply the previous case to \( f_+ \) and \( f_- \). For (1), observe that \( |f| = f_+ + f_- \).
+\end{proof}
+\end{enumerate}
+\end{document}
